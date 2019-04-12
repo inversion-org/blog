@@ -9,5 +9,5 @@ This is the Inversion Framework blog. We will be adding articles, tutorials and 
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTY2NDk3MjY1LC0yMTM1MzU1NzE3XX0=
+eyJoaXN0b3J5IjpbLTY2NDk3MjY1XX0=
 -->
