@@ -2,11 +2,11 @@
 
 - Adam Christie ([@fractos](https://github.com/fractos))
 
-I've been working on making the definition of a service container using [`Inversion.Naid`](https://github.com/guy-murphy/inversion-dev/tree/master/Inversion.Naiad) ([https://github.com/guy-murphy/inversion-dev/tree/master/Inversion.Naiad](https://github.com/guy-murphy/inversion-dev/tree/master/Inversion.Naiad)) behaviours more tidy, more obvious and safer from typos. This is a common problem area when dealing with service containers that are keyed on strings and which use them throughout for conditional logic.
+I've been working on improving the way behaviours can be defined inside a service container using [`Inversion.Naiad` - https://github.com/guy-murphy/inversion-dev/tree/master/Inversion.Naiad](https://github.com/guy-murphy/inversion-dev/tree/master/Inversion.Naiad) - making the configuration intent more obvious and also safer from typos. This is a common problem area when correct functionality is predicated on strings being correct.
 
 ## The problem with strings...
 
-The [`PrototypedBehaviour`](https://github.com/guy-murphy/inversion-dev/blob/master/Inversion.Process/Behaviour/PrototypedBehaviour.cs) ([https://github.com/guy-murphy/inversion-dev/blob/master/Inversion.Process/Behaviour/PrototypedBehaviour.cs](https://github.com/guy-murphy/inversion-dev/blob/master/Inversion.Process/Behaviour/PrototypedBehaviour.cs)) base class is absurdly powerful. With it, you can define a mixed bag of conditions and configuration - everything that the behaviour needs to determine whether its Condition should trigger its Action, and then everything that an Action needs to fulfil its functionality, all in one place.
+The [`PrototypedBehaviour` - https://github.com/guy-murphy/inversion-dev/blob/master/Inversion.Process/Behaviour/PrototypedBehaviour.cs](https://github.com/guy-murphy/inversion-dev/blob/master/Inversion.Process/Behaviour/PrototypedBehaviour.cs) - base class is absurdly powerful. With it, you can define a mixed bag of conditions and configuration - everything that the behaviour needs to determine whether its Condition should trigger its Action, and then everything that an Action needs to fulfil its functionality, all in one place.
 
 Driving the behaviour from what is essentially a bag of dictionaries is incredibly flexible, but comes with some risk; notably, that the various stanzas could easily contain a typo which could radically change the meaning of the configuration.
 
@@ -64,7 +64,7 @@ And that reads a lot better to me, especially when using named parameters explic
 
 ## Conditions helper
 
-The Conditions helper class itself is simply a generator of `Inversion.Process.Configuration.Element` instances, which effectively marshal the `NamedCases` found in [`Inversion.Process.Behaviour.Prototype`](https://github.com/guy-murphy/inversion-dev/blob/master/Inversion.Process/Behaviour/Prototype.cs) ([https://github.com/guy-murphy/inversion-dev/blob/master/Inversion.Process/Behaviour/Prototype.cs](https://github.com/guy-murphy/inversion-dev/blob/master/Inversion.Process/Behaviour/Prototype.cs)).
+The Conditions helper class itself is simply a generator of `Inversion.Process.Configuration.Element` instances, which effectively marshal the `NamedCases` found in [`Inversion.Process.Behaviour.Prototype` - https://github.com/guy-murphy/inversion-dev/blob/master/Inversion.Process/Behaviour/Prototype.cs](https://github.com/guy-murphy/inversion-dev/blob/master/Inversion.Process/Behaviour/Prototype.cs).
 
 ```c#
 public static class Conditions
