@@ -6,7 +6,7 @@ I've been working on making the definitions of behaviours more tidy, more obviou
 
 ## The problem with strings...
 
-The `PrototypedBehaviour` base class is absurdly powerful (https://github.com/guy-murphy/inversion-dev/blob/master/Inversion.Process/Behaviour/PrototypedBehaviour.cs). With it, you can define a mixed bag of conditions and configuration - everything that the behaviour needs to determine whether its Condition should trigger its Action, and then everything that an Action needs to fulfil its functionality, all in one place.
+The [`PrototypedBehaviour`](https://github.com/guy-murphy/inversion-dev/blob/master/Inversion.Process/Behaviour/PrototypedBehaviour.cs) base class is absurdly powerful. With it, you can define a mixed bag of conditions and configuration - everything that the behaviour needs to determine whether its Condition should trigger its Action, and then everything that an Action needs to fulfil its functionality, all in one place.
 
 Driving the behaviour from what is essentially a bag of dictionaries is incredibly flexible, but comes with some risk; notably, that the various stanzas could easily contain a typo which could radically change the meaning of the configuration.
 
@@ -60,7 +60,7 @@ new LoadCustomerByNameBehaviour(
 
 And that reads a lot better to me, especially when using named parameters explicitly where possible. Guy Murphy once described how much he liked the named parameters in C#, saying that they "look like a little DSL", which is definitely part of the charm for me too, aside from the obvious advantages for disambiguation and reducing mistakes.
 
-The Conditions helper class itself is simply a generator of `Inversion.Process.Configuration.Element` instances, which effectively marshal the `NamedCases` found in `Inversion.Process.Behaviour.Prototype` (see https://github.com/guy-murphy/inversion-dev/blob/master/Inversion.Process/Behaviour/Prototype.cs).
+The Conditions helper class itself is simply a generator of `Inversion.Process.Configuration.Element` instances, which effectively marshal the `NamedCases` found in [`Inversion.Process.Behaviour.Prototype`](https://github.com/guy-murphy/inversion-dev/blob/master/Inversion.Process/Behaviour/Prototype.cs).
 
 ```c#
 public static class Conditions
