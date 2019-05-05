@@ -64,7 +64,7 @@ And that reads a lot better to me, especially when using named parameters explic
 
 ## Conditions helper
 
-The Conditions helper class itself is simply a generator of `Inversion.Process.Configuration.Element` instances, which effectively marshal the `NamedCases` found in [`Inversion.Process.Behaviour.Prototype` - https://github.com/guy-murphy/inversion-dev/blob/master/Inversion.Process/Behaviour/Prototype.cs](https://github.com/guy-murphy/inversion-dev/blob/master/Inversion.Process/Behaviour/Prototype.cs).
+The Conditions helper class itself is simply a generator of `Inversion.Process.Configuration.Element` instances, which effectively marshal the `NamedCases` found in [`Inversion.Process.Behaviour.Prototype` - https://github.com/guy-murphy/inversion-dev/blob/master/Inversion.Process/Behaviour/Prototype.cs](https://github.com/guy-murphy/inversion-dev/blob/master/Inversion.Process/Behaviour/Prototype.cs) and [`Inversion.Extensibility` - https://github.com/inversion-org/inversion-extensibility/blob/dotnetcore/Inversion.Extensibility/Extensibility/Prototypes.cs](https://github.com/inversion-org/inversion-extensibility/blob/dotnetcore/Inversion.Extensibility/Extensibility/Prototypes.cs).
 
 ```c#
 public static class Conditions
