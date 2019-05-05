@@ -2,15 +2,17 @@
 
 - Adam Christie ([@fractos](https://github.com/fractos))
 
-I've been working on making the definitions of behaviours more tidy, more obvious and safer from typos - a common problem area when dealing with service containers that are keyed on strings.
+I've been working on making the definition of a service container using [`Inversion.Naid`](https://github.com/guy-murphy/inversion-dev/tree/master/Inversion.Naiad) (https://github.com/guy-murphy/inversion-dev/tree/master/Inversion.Naiad) behaviours more tidy, more obvious and safer from typos - a common problem area when dealing with service containers that are keyed on strings and use them throughout for conditional logic.
 
 ## The problem with strings...
 
-The [`PrototypedBehaviour`](https://github.com/guy-murphy/inversion-dev/blob/master/Inversion.Process/Behaviour/PrototypedBehaviour.cs) base class is absurdly powerful. With it, you can define a mixed bag of conditions and configuration - everything that the behaviour needs to determine whether its Condition should trigger its Action, and then everything that an Action needs to fulfil its functionality, all in one place.
+The [`PrototypedBehaviour`](https://github.com/guy-murphy/inversion-dev/blob/master/Inversion.Process/Behaviour/PrototypedBehaviour.cs) (https://github.com/guy-murphy/inversion-dev/blob/master/Inversion.Process/Behaviour/PrototypedBehaviour.cs) base class is absurdly powerful. With it, you can define a mixed bag of conditions and configuration - everything that the behaviour needs to determine whether its Condition should trigger its Action, and then everything that an Action needs to fulfil its functionality, all in one place.
 
 Driving the behaviour from what is essentially a bag of dictionaries is incredibly flexible, but comes with some risk; notably, that the various stanzas could easily contain a typo which could radically change the meaning of the configuration.
 
 As well as changing behaviour configuration to use statically typed items where possible (for Flags, store names, Settings etc), I decided to make mini-factories for Conditions. I believe the result aids readability and also makes it less likely to make a mistake.
+
+## Improving the behaviour definition
 
 So, with some expansion and a little helper class to sort out the Conditions, this turns the following:
 
@@ -60,7 +62,9 @@ new LoadCustomerByNameBehaviour(
 
 And that reads a lot better to me, especially when using named parameters explicitly where possible. Guy Murphy once described how much he liked the named parameters in C#, saying that they "look like a little DSL", which is definitely part of the charm for me too, aside from the obvious advantages for disambiguation and reducing mistakes.
 
-The Conditions helper class itself is simply a generator of `Inversion.Process.Configuration.Element` instances, which effectively marshal the `NamedCases` found in [`Inversion.Process.Behaviour.Prototype`](https://github.com/guy-murphy/inversion-dev/blob/master/Inversion.Process/Behaviour/Prototype.cs).
+## Conditions helper
+
+The Conditions helper class itself is simply a generator of `Inversion.Process.Configuration.Element` instances, which effectively marshal the `NamedCases` found in [`Inversion.Process.Behaviour.Prototype`](https://github.com/guy-murphy/inversion-dev/blob/master/Inversion.Process/Behaviour/Prototype.cs) (https://github.com/guy-murphy/inversion-dev/blob/master/Inversion.Process/Behaviour/Prototype.cs).
 
 ```c#
 public static class Conditions
